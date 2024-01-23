@@ -37,6 +37,7 @@ public class EvenGame {
             } else {
                 wasMistake = true;
                 System.out.printf(wrongAnswerExplainPattern + "%n", userAnswer, expectedAnswer, username);
+                break;
             }
         }
 
