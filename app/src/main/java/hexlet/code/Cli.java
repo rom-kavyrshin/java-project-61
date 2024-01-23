@@ -7,6 +7,7 @@ public class Cli {
     public static Games gameMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
+        System.out.println("2 - Even");
         System.out.println("0 - Exit");
         Scanner scanner = new Scanner(System.in);
         String gameNumberString = scanner.nextLine();
@@ -18,6 +19,7 @@ public class Cli {
         }
         return switch (gameNumber) {
             case 1 -> Games.Greet;
+            case 2 -> Games.Even;
             case 0 -> Games.Exit;
             default -> Games.Unknown;
         };
