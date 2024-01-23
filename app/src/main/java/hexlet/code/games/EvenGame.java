@@ -14,8 +14,8 @@ public class EvenGame {
     private static final String yesExpectedString = "yes";
     private static final String noExpectedString = "no";
     private static final String rightAnswerCongratulationString = "Correct!";
-    private static final String wrongAnswerExplainPattern = "'%s' is wrong answer ;(. Correct answer was '%s'.\n" + "Let's try again, %s!";
-    private static final String finalCongratulationPattern = "Congratulations, %s!";
+    private static final String wrongAnswerExplainPattern = "'%1$s' is wrong answer ;(. Correct answer was '%2$s'.\n" + "Let's try again, %3$s!";
+    private static final String finalCongratulationPattern = "Congratulations, %1$s!";
 
     public static void game() {
         String username = Cli.askUsername();
