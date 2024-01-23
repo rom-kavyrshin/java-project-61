@@ -32,6 +32,11 @@ public class Cli {
         return username;
     }
 
+    public static String readLine() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
     public static void exitGame() {
         System.exit(0);
     }
