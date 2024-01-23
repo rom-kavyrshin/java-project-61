@@ -23,12 +23,13 @@ public class Cli {
         };
     }
 
-    public static void askUsername() {
+    public static String askUsername() {
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
         Scanner scanner = new Scanner(System.in);
         String username = scanner.nextLine();
         System.out.println("Hello, " + username + "!");
+        return username;
     }
 
     public static void exitGame() {
