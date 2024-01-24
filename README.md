@@ -5,3 +5,5 @@
 [![asciicast](https://asciinema.org/a/EyqqFRsUzL7K5qVnIJyUdpOWu.svg)](https://asciinema.org/a/EyqqFRsUzL7K5qVnIJyUdpOWu)
 ### CalcGame demo
 [![asciicast](https://asciinema.org/a/hAbJyMckV2QAFNgcwXcGYqR1T.svg)](https://asciinema.org/a/hAbJyMckV2QAFNgcwXcGYqR1T)
+### GCDGame demo
+[![asciicast](https://asciinema.org/a/WeFMXjDPo63fui8tB2ZPSBCiq.svg)](https://asciinema.org/a/WeFMXjDPo63fui8tB2ZPSBCiq)
