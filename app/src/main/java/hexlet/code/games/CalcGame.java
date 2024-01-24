@@ -23,7 +23,7 @@ public class CalcGame {
     public static void game() {
         Engine.welcomeGame("What is the result of the expression?");
 
-        List<Exercise> evenExercises = new ArrayList<>();
+        List<Exercise> calcExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
             int questionOperationNumber = RANDOM.nextInt(QUESTION_OPERATION_RANDOM_BOUND);
@@ -48,9 +48,9 @@ public class CalcGame {
                 }
             };
 
-            evenExercises.add(exercise);
+            calcExercises.add(exercise);
         }
 
-        Engine.playGame(evenExercises);
+        Engine.playGame(calcExercises);
     }
 }
