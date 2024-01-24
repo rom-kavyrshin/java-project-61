@@ -13,6 +13,9 @@ public class GCDGame {
     private static final Random RANDOM = new SecureRandom();
 
     private static final int QUESTION_NUMBER_BOUND = 100;
+    private static final int QUESTION_MULTIPLIER_NUMBER_ORIGIN = 1;
+    private static final int ANSWER_NUMBER_ORIGIN = 1;
+    private static final int ANSWER_NUMBER_BOUND = 19;
 
     private static final String QUESTION_STRING_PATTERN = "%1$d %2$d";
 
@@ -22,8 +25,19 @@ public class GCDGame {
         List<Exercise> gcdExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionFirstNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
-            int questionSecondNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
+            int sourceNumber = RANDOM.nextInt(ANSWER_NUMBER_ORIGIN, ANSWER_NUMBER_BOUND);
+
+            int questionFirstNumberMultiplier = RANDOM.nextInt(
+                    QUESTION_MULTIPLIER_NUMBER_ORIGIN,
+                    QUESTION_NUMBER_BOUND / sourceNumber
+            );
+            int questionSecondNumberMultiplier = RANDOM.nextInt(
+                    questionFirstNumberMultiplier,
+                    QUESTION_NUMBER_BOUND / sourceNumber
+            );
+
+            int questionFirstNumber = sourceNumber * questionFirstNumberMultiplier;
+            int questionSecondNumber = sourceNumber * questionSecondNumberMultiplier;
 
             String question = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, questionSecondNumber);
             String answer = Integer.toString(gcd(questionFirstNumber, questionSecondNumber));
