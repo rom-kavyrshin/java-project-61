@@ -15,6 +15,9 @@ public class CalcGame {
     private static final int QUESTION_OPERATION_MINUS = 1;
 //    private static final int QUESTION_OPERATION_MULTIPLY = 2;
 
+    private static final int QUESTION_OPERATION_RANDOM_BOUND = 3;
+    private static final int QUESTION_NUMBER_BOUND = 30;
+
     private static final String QUESTION_STRING_PATTERN = "%1$d %2$s %3$d";
 
     public static void game() {
@@ -22,10 +25,10 @@ public class CalcGame {
 
         List<Exercise> evenExercises = new ArrayList<>();
 
-        for (int i = 0; i < 3; i++) {
-            int questionOperationNumber = RANDOM.nextInt(3);
-            int questionFirstNumber = RANDOM.nextInt(30);
-            int questionSecondNumber = RANDOM.nextInt(30);
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+            int questionOperationNumber = RANDOM.nextInt(QUESTION_OPERATION_RANDOM_BOUND);
+            int questionFirstNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
+            int questionSecondNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
 
             Exercise exercise = switch (questionOperationNumber) {
                 case QUESTION_OPERATION_PLUS -> {

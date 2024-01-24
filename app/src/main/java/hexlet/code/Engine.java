@@ -4,13 +4,16 @@ import java.util.List;
 
 public class Engine {
 
-    private static String username;
-    private static final String questionPartString = "Question: ";
-    private static final String waitAnswerString = "Your answer: ";
+    public static final int COUNT_OF_ROUNDS = 3;
 
-    private static final String rightAnswerCongratulationString = "Correct!";
-    private static final String wrongAnswerExplainPattern = "'%1$s' is wrong answer ;(. Correct answer was '%2$s'.\n" + "Let's try again, %3$s!";
-    private static final String finalCongratulationPattern = "Congratulations, %1$s!";
+    private static final String QUESTION_PART_STRING = "Question: ";
+    private static final String WAIT_ANSWER_STRING = "Your answer: ";
+
+    private static final String RIGHT_ANSWER_CONGRATULATION_STRING = "Correct!";
+    private static final String WRONG_ANSWER_EXPLAIN_PATTERN = "'%1$s' is wrong answer ;(. Correct answer was '%2$s'.\n" + "Let's try again, %3$s!";
+    private static final String FINAL_CONGRATULATION_PATTERN = "Congratulations, %1$s!";
+
+    private static String username;
 
     public static void welcomeGame(String rules) {
         username = Cli.askUsername();
@@ -21,22 +24,22 @@ public class Engine {
         boolean wasMistake = false;
 
         for (Exercise exercise : exercises) {
-            System.out.println(questionPartString + exercise.getQuestion());
+            System.out.println(QUESTION_PART_STRING + exercise.getQuestion());
 
-            System.out.print(waitAnswerString);
+            System.out.print(WAIT_ANSWER_STRING);
             String userAnswer = Cli.readLine();
 
             if (exercise.getAnswer().equals(userAnswer)) {
-                System.out.println(rightAnswerCongratulationString);
+                System.out.println(RIGHT_ANSWER_CONGRATULATION_STRING);
             } else {
                 wasMistake = true;
-                System.out.printf(wrongAnswerExplainPattern + "%n", userAnswer, exercise.getAnswer(), username);
+                System.out.printf(WRONG_ANSWER_EXPLAIN_PATTERN + "%n", userAnswer, exercise.getAnswer(), username);
                 break;
             }
         }
 
         if (!wasMistake) {
-            System.out.printf(finalCongratulationPattern + "%n", username);
+            System.out.printf(FINAL_CONGRATULATION_PATTERN + "%n", username);
         }
     }
 }
