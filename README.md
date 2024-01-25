@@ -9,3 +9,5 @@
 [![asciicast](https://asciinema.org/a/WeFMXjDPo63fui8tB2ZPSBCiq.svg)](https://asciinema.org/a/WeFMXjDPo63fui8tB2ZPSBCiq)
 ### ProgressionGame demo
 [![asciicast](https://asciinema.org/a/vGrCu39tid8RKcD331zO8bF4H.svg)](https://asciinema.org/a/vGrCu39tid8RKcD331zO8bF4H)
+### PrimeNumberGame demo
+[![asciicast](https://asciinema.org/a/0hM9VyC7uXMfp8Wzx4A5LJn1Y.svg)](https://asciinema.org/a/0hM9VyC7uXMfp8Wzx4A5LJn1Y)
