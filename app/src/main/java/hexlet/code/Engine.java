@@ -25,16 +25,16 @@ public class Engine {
         boolean wasMistake = false;
 
         for (Exercise exercise : exercises) {
-            System.out.println(QUESTION_PART_STRING + exercise.getQuestion());
+            System.out.println(QUESTION_PART_STRING + exercise.question());
 
             System.out.print(WAIT_ANSWER_STRING);
             String userAnswer = Cli.readLine();
 
-            if (exercise.getAnswer().equals(userAnswer)) {
+            if (exercise.answer().equals(userAnswer)) {
                 System.out.println(RIGHT_ANSWER_CONGRATULATION_STRING);
             } else {
                 wasMistake = true;
-                System.out.printf(WRONG_ANSWER_EXPLAIN_PATTERN + "%n", userAnswer, exercise.getAnswer(), username);
+                System.out.printf(WRONG_ANSWER_EXPLAIN_PATTERN + "%n", userAnswer, exercise.answer(), username);
                 break;
             }
         }
