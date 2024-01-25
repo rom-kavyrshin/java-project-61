@@ -43,7 +43,7 @@ public class PrimeNumberGame {
         Engine.playGame(primeNumberExercises);
     }
 
-    private static ArrayList<Integer> findPrimeNumbersUpTo(int n) {
+    private static ArrayList<Integer> findPrimeNumbersUpTo(@SuppressWarnings("SameParameterValue") int n) {
         ArrayList<Integer> primeList = new ArrayList<>();
         boolean[] primeNumbers = new boolean[n + 1];
         Arrays.fill(primeNumbers, true);
