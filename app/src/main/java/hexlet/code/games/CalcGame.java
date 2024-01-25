@@ -13,7 +13,6 @@ public class CalcGame {
 
     private static final int QUESTION_OPERATION_PLUS = 0;
     private static final int QUESTION_OPERATION_MINUS = 1;
-//    private static final int QUESTION_OPERATION_MULTIPLY = 2;
 
     private static final int QUESTION_OPERATION_RANDOM_BOUND = 3;
     private static final int QUESTION_NUMBER_BOUND = 30;
@@ -32,17 +31,20 @@ public class CalcGame {
 
             Exercise exercise = switch (questionOperationNumber) {
                 case QUESTION_OPERATION_PLUS -> {
-                    String question = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "+", questionSecondNumber);
+                    String question
+                            = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "+", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber + questionSecondNumber);
                     yield new Exercise(question, answer);
                 }
                 case QUESTION_OPERATION_MINUS -> {
-                    String question = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "-", questionSecondNumber);
+                    String question
+                            = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "-", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber - questionSecondNumber);
                     yield new Exercise(question, answer);
                 }
                 default -> {
-                    String question = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "*", questionSecondNumber);
+                    String question
+                            = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "*", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber * questionSecondNumber);
                     yield new Exercise(question, answer);
                 }

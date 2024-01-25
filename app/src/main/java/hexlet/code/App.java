@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.PrimeNumberGame;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
 
@@ -15,7 +19,7 @@ public class App {
             case Progression -> ProgressionGame.game();
             case Prime -> PrimeNumberGame.game();
             case Exit -> exitGame();
-            case Unknown -> {
+            default -> {
                 printUnknownGameMessage();
                 exitGame();
             }

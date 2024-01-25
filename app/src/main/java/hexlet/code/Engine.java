@@ -10,7 +10,8 @@ public class Engine {
     private static final String WAIT_ANSWER_STRING = "Your answer: ";
 
     private static final String RIGHT_ANSWER_CONGRATULATION_STRING = "Correct!";
-    private static final String WRONG_ANSWER_EXPLAIN_PATTERN = "'%1$s' is wrong answer ;(. Correct answer was '%2$s'.\n" + "Let's try again, %3$s!";
+    private static final String WRONG_ANSWER_EXPLAIN_PATTERN = "'%1$s' is wrong answer ;(. Correct answer was '%2$s'.\n"
+            + "Let's try again, %3$s!";
     private static final String FINAL_CONGRATULATION_PATTERN = "Congratulations, %1$s!";
 
     private static String username;
