@@ -10,15 +10,25 @@ import java.util.Scanner;
 
 public class App {
 
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    private static final int CALC = 3;
+    private static final int GCD = 4;
+    private static final int PROGRESSION = 5;
+    private static final int PRIME = 6;
+    private static final int EXIT = 0;
+
     public static void main(String[] args) {
-        switch (gameMenu()) {
-            case Greet -> Cli.askUsername();
-            case Even -> EvenGame.game();
-            case Calc -> CalcGame.game();
-            case Gcd -> GCDGame.game();
-            case Progression -> ProgressionGame.game();
-            case Prime -> PrimeNumberGame.game();
-            case Exit -> exitGame();
+        int gameNumber = printGameMenu();
+
+        switch (gameNumber) {
+            case GREET -> Cli.askUsername();
+            case EVEN -> EvenGame.game();
+            case CALC -> CalcGame.game();
+            case GCD -> GCDGame.game();
+            case PROGRESSION -> ProgressionGame.game();
+            case PRIME -> PrimeNumberGame.game();
+            case EXIT -> exitGame();
             default -> {
                 printUnknownGameMessage();
                 exitGame();
@@ -26,7 +36,7 @@ public class App {
         }
     }
 
-    public static Games gameMenu() {
+    public static int printGameMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -45,16 +55,8 @@ public class App {
             gameNumber = -1;
         }
         System.out.println();
-        return switch (gameNumber) {
-            case 1 -> Games.Greet;
-            case 2 -> Games.Even;
-            case 3 -> Games.Calc;
-            case 4 -> Games.Gcd;
-            case 5 -> Games.Progression;
-            case 6 -> Games.Prime;
-            case 0 -> Games.Exit;
-            default -> Games.Unknown;
-        };
+
+        return gameNumber;
     }
 
     public static void exitGame() {

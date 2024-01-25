@@ -1,8 +1,8 @@
 package hexlet.code;
 
-public class Exercise {
-    private String question;
-    private String answer;
+public final class Exercise {
+    private final String question;
+    private final String answer;
 
     public Exercise(String question, String answer) {
         this.question = question;
@@ -13,15 +13,7 @@ public class Exercise {
         return question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
     public String getAnswer() {
         return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
     }
 }
