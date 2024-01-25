@@ -31,6 +31,7 @@ public class App {
         System.out.println("5 - Progression");
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
         String gameNumberString = scanner.nextLine();
         int gameNumber;
@@ -39,6 +40,7 @@ public class App {
         } catch (Exception ex) {
             gameNumber = -1;
         }
+        System.out.println();
         return switch (gameNumber) {
             case 1 -> Games.Greet;
             case 2 -> Games.Even;
