@@ -6,6 +6,7 @@ public enum Games {
     Calc,
     Gcd,
     Progression,
+    Prime,
     Exit,
     Unknown
 }
