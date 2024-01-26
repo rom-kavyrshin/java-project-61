@@ -2,16 +2,13 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Exercise;
+import hexlet.code.Utils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 public class PrimeNumberGame {
-
-    private static final Random RANDOM = new SecureRandom();
 
     private static final String YES_EXPECTED_STRING = "yes";
     private static final String NO_EXPECTED_STRING = "no";
@@ -27,11 +24,11 @@ public class PrimeNumberGame {
         ArrayList<Integer> primeNumbers = findPrimeNumbersUpTo(PRIME_NUMBERS_BOUND);
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionNumber = primeNumbers.get(RANDOM.nextInt(primeNumbers.size()));
+            int questionNumber = primeNumbers.get(Utils.nextRandomInt(primeNumbers.size()));
             int trickNumber;
 
-            if (RANDOM.nextBoolean()) {
-                trickNumber = RANDOM.nextInt(TRICK_NUMBER_BOUND);
+            if (Utils.nextRandomBoolean()) {
+                trickNumber = Utils.nextRandomInt(TRICK_NUMBER_BOUND);
                 trickNumber = trickNumber % 2 == 0 ? trickNumber : trickNumber + 1;
                 questionNumber += trickNumber;
             }

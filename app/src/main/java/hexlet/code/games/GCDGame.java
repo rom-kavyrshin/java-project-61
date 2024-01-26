@@ -2,15 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Exercise;
+import hexlet.code.Utils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class GCDGame {
-
-    private static final Random RANDOM = new SecureRandom();
 
     private static final int QUESTION_NUMBER_BOUND = 100;
     private static final int QUESTION_MULTIPLIER_NUMBER_ORIGIN = 1;
@@ -25,13 +22,13 @@ public class GCDGame {
         List<Exercise> gcdExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int sourceNumber = RANDOM.nextInt(ANSWER_NUMBER_ORIGIN, ANSWER_NUMBER_BOUND);
+            int sourceNumber = Utils.nextRandomInt(ANSWER_NUMBER_ORIGIN, ANSWER_NUMBER_BOUND);
 
-            int questionFirstNumberMultiplier = RANDOM.nextInt(
+            int questionFirstNumberMultiplier = Utils.nextRandomInt(
                     QUESTION_MULTIPLIER_NUMBER_ORIGIN,
                     QUESTION_NUMBER_BOUND / sourceNumber
             );
-            int questionSecondNumberMultiplier = RANDOM.nextInt(
+            int questionSecondNumberMultiplier = Utils.nextRandomInt(
                     questionFirstNumberMultiplier,
                     QUESTION_NUMBER_BOUND / sourceNumber
             );

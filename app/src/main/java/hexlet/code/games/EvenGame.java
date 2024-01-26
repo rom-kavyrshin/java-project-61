@@ -2,15 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Exercise;
+import hexlet.code.Utils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class EvenGame {
-
-    private static final Random RANDOM = new SecureRandom();
 
     private static final String YES_EXPECTED_STRING = "yes";
     private static final String NO_EXPECTED_STRING = "no";
@@ -23,7 +20,7 @@ public class EvenGame {
         List<Exercise> evenExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
+            int questionNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
             boolean isEven = questionNumber % 2 == 0;
             String expectedAnswer = isEven ? YES_EXPECTED_STRING : NO_EXPECTED_STRING;
             evenExercises.add(new Exercise(questionNumber + "", expectedAnswer));

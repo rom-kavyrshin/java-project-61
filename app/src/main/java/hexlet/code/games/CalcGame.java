@@ -2,14 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Exercise;
+import hexlet.code.Utils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class CalcGame {
-    private static final Random RANDOM = new SecureRandom();
 
     private static final int QUESTION_OPERATION_PLUS = 0;
     private static final int QUESTION_OPERATION_MINUS = 1;
@@ -25,9 +23,9 @@ public class CalcGame {
         List<Exercise> calcExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionOperationNumber = RANDOM.nextInt(QUESTION_OPERATION_RANDOM_BOUND);
-            int questionFirstNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
-            int questionSecondNumber = RANDOM.nextInt(QUESTION_NUMBER_BOUND);
+            int questionOperationNumber = Utils.nextRandomInt(QUESTION_OPERATION_RANDOM_BOUND);
+            int questionFirstNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
+            int questionSecondNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
 
             Exercise exercise = switch (questionOperationNumber) {
                 case QUESTION_OPERATION_PLUS -> {

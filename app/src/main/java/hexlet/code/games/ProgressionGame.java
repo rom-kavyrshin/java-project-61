@@ -2,15 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Exercise;
+import hexlet.code.Utils;
 
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class ProgressionGame {
-
-    private static final Random RANDOM = new SecureRandom();
 
     private static final int PROGRESSION_MIN_LENGTH = 5;
     private static final int PROGRESSION_MAX_LENGTH = 10 + 1;
@@ -27,11 +24,12 @@ public class ProgressionGame {
         List<Exercise> progressionExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int progressionLength = RANDOM.nextInt(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
-            int invisibleItemPosition = RANDOM.nextInt(progressionLength);
+            int progressionLength = Utils.nextRandomInt(PROGRESSION_MIN_LENGTH, PROGRESSION_MAX_LENGTH);
+            int invisibleItemPosition = Utils.nextRandomInt(progressionLength);
 
-            int progressionStartNumber = RANDOM.nextInt(PROGRESSION_START_NUMBER_MIN, PROGRESSION_START_NUMBER_MAX);
-            int progressionStep = RANDOM.nextInt(PROGRESSION_STEP_MIN, PROGRESSION_STEP_MAX);
+            int progressionStartNumber
+                    = Utils.nextRandomInt(PROGRESSION_START_NUMBER_MIN, PROGRESSION_START_NUMBER_MAX);
+            int progressionStep = Utils.nextRandomInt(PROGRESSION_STEP_MIN, PROGRESSION_STEP_MAX);
 
             int answerNumber = invisibleItemPosition * progressionStep + progressionStartNumber;
 
