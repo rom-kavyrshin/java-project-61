@@ -7,7 +7,7 @@ Five simple mind training games
 ### Building
 Execute installDist gradle task by
 ```bash
-cd app && ./gradlew installDist
+cd app && make install-dist
 ```
 ### Run
 Execute
