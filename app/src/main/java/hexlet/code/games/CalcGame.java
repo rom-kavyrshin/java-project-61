@@ -9,11 +9,15 @@ import java.util.List;
 
 public class CalcGame {
 
-    private static final int QUESTION_OPERATION_PLUS = 0;
-    private static final int QUESTION_OPERATION_MINUS = 1;
+    private static final String QUESTION_OPERATION_PLUS = "+";
+    private static final String QUESTION_OPERATION_MINUS = "-";
+    private static final String QUESTION_OPERATION_MULTIPLY = "*";
 
     private static final int QUESTION_OPERATION_RANDOM_BOUND = 3;
     private static final int QUESTION_NUMBER_BOUND = 30;
+    private static final String[] QUESTION_POSSIBLE_OPERATIONS = new String[] {
+        QUESTION_OPERATION_PLUS, QUESTION_OPERATION_MINUS, QUESTION_OPERATION_MULTIPLY
+    };
 
     private static final String QUESTION_STRING_PATTERN = "%1$d %2$s %3$d";
 
@@ -23,11 +27,12 @@ public class CalcGame {
         List<Exercise> calcExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionOperationNumber = Utils.nextRandomInt(QUESTION_OPERATION_RANDOM_BOUND);
+            String questionOperation
+                    = QUESTION_POSSIBLE_OPERATIONS[Utils.nextRandomInt(QUESTION_OPERATION_RANDOM_BOUND)];
             int questionFirstNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
             int questionSecondNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
 
-            Exercise exercise = switch (questionOperationNumber) {
+            Exercise exercise = switch (questionOperation) {
                 case QUESTION_OPERATION_PLUS -> {
                     String question
                             = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "+", questionSecondNumber);
