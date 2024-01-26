@@ -33,10 +33,9 @@ public class ProgressionGame {
 
             int answerNumber = invisibleItemPosition * progressionStep + progressionStartNumber;
 
-            StringBuilder questionStringBuilder = new StringBuilder();
-
             int nextNumberOfProgression = progressionStartNumber;
 
+            StringBuilder questionStringBuilder = new StringBuilder();
             for (int j = 0; j < progressionLength; j++) {
                 questionStringBuilder
                         .append(j != invisibleItemPosition ? nextNumberOfProgression : "..")
