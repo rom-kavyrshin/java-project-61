@@ -19,24 +19,6 @@ public class App {
     private static final int EXIT = 0;
 
     public static void main(String[] args) {
-        int gameNumber = printGameMenu();
-
-        switch (gameNumber) {
-            case GREET -> Cli.askUsername();
-            case EVEN -> EvenGame.game();
-            case CALC -> CalcGame.game();
-            case GCD -> GCDGame.game();
-            case PROGRESSION -> ProgressionGame.game();
-            case PRIME -> PrimeNumberGame.game();
-            case EXIT -> exitGame();
-            default -> {
-                printUnknownGameMessage();
-                exitGame();
-            }
-        }
-    }
-
-    public static int printGameMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -56,7 +38,19 @@ public class App {
         }
         System.out.println();
 
-        return gameNumber;
+        switch (gameNumber) {
+            case GREET -> Cli.askUsername();
+            case EVEN -> EvenGame.game();
+            case CALC -> CalcGame.game();
+            case GCD -> GCDGame.game();
+            case PROGRESSION -> ProgressionGame.game();
+            case PRIME -> PrimeNumberGame.game();
+            case EXIT -> exitGame();
+            default -> {
+                printUnknownGameMessage();
+                exitGame();
+            }
+        }
     }
 
     public static void exitGame() {

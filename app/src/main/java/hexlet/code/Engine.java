@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Engine {
 
@@ -17,7 +18,7 @@ public class Engine {
     private static String username;
 
     public static void welcomeGame(String rules) {
-        username = Cli.askUsername();
+        askUsername();
         System.out.println(rules);
     }
 
@@ -28,7 +29,7 @@ public class Engine {
             System.out.println(QUESTION_PART_STRING + exercise.question());
 
             System.out.print(WAIT_ANSWER_STRING);
-            String userAnswer = Cli.readLine();
+            String userAnswer = readLine();
 
             if (exercise.answer().equals(userAnswer)) {
                 System.out.println(RIGHT_ANSWER_CONGRATULATION_STRING);
@@ -42,5 +43,18 @@ public class Engine {
         if (!wasMistake) {
             System.out.printf(FINAL_CONGRATULATION_PATTERN + "%n", username);
         }
+    }
+
+    public static void askUsername() {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        Scanner scanner = new Scanner(System.in);
+        username = scanner.nextLine();
+        System.out.println("Hello, " + username + "!");
+    }
+
+    public static String readLine() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 }
