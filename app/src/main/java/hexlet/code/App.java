@@ -6,8 +6,6 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.PrimeNumberGame;
 import hexlet.code.games.ProgressionGame;
 
-import java.util.Scanner;
-
 public class App {
 
     private static final int GREET = 1;
@@ -28,8 +26,7 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        Scanner scanner = new Scanner(System.in);
-        String gameNumberString = scanner.nextLine();
+        String gameNumberString = Utils.readLine();
         int gameNumber;
         try {
             gameNumber = Integer.parseInt(gameNumberString);
