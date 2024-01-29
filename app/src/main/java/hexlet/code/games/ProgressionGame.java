@@ -31,21 +31,25 @@ public class ProgressionGame {
                     = Utils.nextRandomInt(PROGRESSION_START_NUMBER_MIN, PROGRESSION_START_NUMBER_MAX);
             int progressionStep = Utils.nextRandomInt(PROGRESSION_STEP_MIN, PROGRESSION_STEP_MAX);
 
-            int answerNumber = invisibleItemPosition * progressionStep + progressionStartNumber;
+            String[] progression = makeProgression(progressionStartNumber, progressionStep, progressionLength);
+            String answerNumber = progression[invisibleItemPosition];
+            progression[invisibleItemPosition] = "..";
 
-            int nextNumberOfProgression = progressionStartNumber;
+            String question = String.join(" ", progression);
 
-            StringBuilder questionStringBuilder = new StringBuilder();
-            for (int j = 0; j < progressionLength; j++) {
-                questionStringBuilder
-                        .append(j != invisibleItemPosition ? nextNumberOfProgression : "..")
-                        .append(" ");
-                nextNumberOfProgression += progressionStep;
-            }
-
-            progressionExercises.add(new Exercise(questionStringBuilder.toString(), Integer.toString(answerNumber)));
+            progressionExercises.add(new Exercise(question, answerNumber));
         }
 
         Engine.playGame(progressionExercises);
+    }
+
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+
+        for (int i = 0; i < length; i += 1) {
+            progression[i] = Integer.toString(first + i * step);
+        }
+
+        return progression;
     }
 }
