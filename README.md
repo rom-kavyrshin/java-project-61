@@ -7,12 +7,12 @@ Five simple mind training games
 ### Building
 Execute installDist gradle task by
 ```bash
-cd app && make install-dist
+make build
 ```
 ### Run
 Execute
 ```bash
-cd app && make run-dist
+make run-dist
 ```
 
 ### EvenGame demo
