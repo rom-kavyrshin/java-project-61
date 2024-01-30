@@ -19,8 +19,6 @@ public class ProgressionGame {
     private static final int PROGRESSION_STEP_MAX = 9;
 
     public static void game() {
-        Engine.welcomeGame("What number is missing in the progression?");
-
         List<Exercise> progressionExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
@@ -40,7 +38,7 @@ public class ProgressionGame {
             progressionExercises.add(new Exercise(question, answerNumber));
         }
 
-        Engine.playGame(progressionExercises);
+        Engine.playGame("What number is missing in the progression?", progressionExercises);
     }
 
     private static String[] makeProgression(int first, int step, int length) {

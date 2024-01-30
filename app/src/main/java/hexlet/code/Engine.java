@@ -1,49 +1,39 @@
 package hexlet.code;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Scanner;
 
 public class Engine {
 
     public static final int COUNT_OF_ROUNDS = 3;
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    private static String username;
+    public static void playGame(String rules, Collection<Exercise> exercises) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
 
-    public static void welcomeGame(String rules) {
-        askUsername();
+        String username = SCANNER.nextLine();
+        System.out.println("Hello, " + username + "!");
         System.out.println(rules);
-    }
-
-    public static void playGame(List<Exercise> exercises) {
-        boolean wasMistake = false;
 
         for (Exercise exercise : exercises) {
             System.out.println("Question: " + exercise.question());
 
             System.out.print("Your answer: ");
-            String userAnswer = Utils.readLine();
+            String userAnswer = SCANNER.nextLine();
 
             if (exercise.answer().equals(userAnswer)) {
                 System.out.println("Correct!");
             } else {
-                wasMistake = true;
                 System.out.println(
                     "'" + userAnswer + "' is wrong answer ;(. "
                     + "Correct answer was '" + exercise.answer() + "'.\n"
                     + "Let's try again, " + username + "!"
                 );
-                break;
+                return;
             }
         }
 
-        if (!wasMistake) {
-            System.out.println("Congratulations, " + username + "!");
-        }
-    }
-
-    public static void askUsername() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        username = Utils.readLine();
-        System.out.println("Hello, " + username + "!");
+        System.out.println("Congratulations, " + username + "!");
     }
 }

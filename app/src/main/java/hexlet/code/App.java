@@ -6,6 +6,8 @@ import hexlet.code.games.GCDGame;
 import hexlet.code.games.PrimeNumberGame;
 import hexlet.code.games.ProgressionGame;
 
+import java.util.Scanner;
+
 public class App {
 
     private static final int GREET = 1;
@@ -26,7 +28,8 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        String gameNumberString = Utils.readLine();
+        Scanner scanner = new Scanner(System.in);
+        String gameNumberString = scanner.nextLine();
         int gameNumber;
         try {
             gameNumber = Integer.parseInt(gameNumberString);
@@ -44,17 +47,12 @@ public class App {
             case PRIME -> PrimeNumberGame.game();
             case EXIT -> exitGame();
             default -> {
-                printUnknownGameMessage();
-                exitGame();
+                throw new RuntimeException("Unknown game: " + gameNumber);
             }
         }
     }
 
     public static void exitGame() {
         System.exit(0);
-    }
-
-    public static void printUnknownGameMessage() {
-        System.out.println("Unknown game");
     }
 }

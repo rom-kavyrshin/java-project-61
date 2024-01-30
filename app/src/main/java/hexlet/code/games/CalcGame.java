@@ -9,21 +9,13 @@ import java.util.List;
 
 public class CalcGame {
 
-    private static final String QUESTION_OPERATION_PLUS = "+";
-    private static final String QUESTION_OPERATION_MINUS = "-";
-    private static final String QUESTION_OPERATION_MULTIPLY = "*";
-
     private static final int QUESTION_OPERATION_RANDOM_BOUND = 3;
     private static final int QUESTION_NUMBER_BOUND = 30;
-    private static final String[] QUESTION_POSSIBLE_OPERATIONS = new String[] {
-        QUESTION_OPERATION_PLUS, QUESTION_OPERATION_MINUS, QUESTION_OPERATION_MULTIPLY
-    };
+    private static final String[] QUESTION_POSSIBLE_OPERATIONS = new String[] {"+", "-", "*"};
 
     private static final String QUESTION_STRING_PATTERN = "%1$d %2$s %3$d";
 
     public static void game() {
-        Engine.welcomeGame("What is the result of the expression?");
-
         List<Exercise> calcExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
@@ -33,29 +25,30 @@ public class CalcGame {
             int questionSecondNumber = Utils.nextRandomInt(QUESTION_NUMBER_BOUND);
 
             Exercise exercise = switch (questionOperation) {
-                case QUESTION_OPERATION_PLUS -> {
+                case "+" -> {
                     String question
                             = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "+", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber + questionSecondNumber);
                     yield new Exercise(question, answer);
                 }
-                case QUESTION_OPERATION_MINUS -> {
+                case "-" -> {
                     String question
                             = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "-", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber - questionSecondNumber);
                     yield new Exercise(question, answer);
                 }
-                default -> {
+                case "*" -> {
                     String question
                             = String.format(QUESTION_STRING_PATTERN, questionFirstNumber, "*", questionSecondNumber);
                     String answer = Integer.toString(questionFirstNumber * questionSecondNumber);
                     yield new Exercise(question, answer);
                 }
+                default -> throw new RuntimeException("Unknown input: " + questionOperation);
             };
 
             calcExercises.add(exercise);
         }
 
-        Engine.playGame(calcExercises);
+        Engine.playGame("What is the result of the expression?", calcExercises);
     }
 }

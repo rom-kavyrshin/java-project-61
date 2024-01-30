@@ -15,8 +15,6 @@ public class EvenGame {
     private static final int QUESTION_NUMBER_BOUND = 100;
 
     public static void game() {
-        Engine.welcomeGame("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
         List<Exercise> evenExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
@@ -26,6 +24,6 @@ public class EvenGame {
             evenExercises.add(new Exercise(questionNumber + "", expectedAnswer));
         }
 
-        Engine.playGame(evenExercises);
+        Engine.playGame("Answer 'yes' if the number is even, otherwise answer 'no'.", evenExercises);
     }
 }

@@ -6,7 +6,8 @@ import hexlet.code.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PrimeNumberGame {
 
@@ -17,9 +18,7 @@ public class PrimeNumberGame {
     private static final int TRICK_NUMBER_BOUND = 10 + 1;
 
     public static void game() {
-        Engine.welcomeGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        List<Exercise> primeNumberExercises = new ArrayList<>();
+        Set<Exercise> primeNumberExercises = new HashSet<>();
 
         ArrayList<Integer> primeNumbers = findPrimeNumbersUpTo(PRIME_NUMBERS_BOUND);
 
@@ -37,7 +36,7 @@ public class PrimeNumberGame {
             primeNumberExercises.add(new Exercise(questionNumber + "", expectedAnswer));
         }
 
-        Engine.playGame(primeNumberExercises);
+        Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", primeNumberExercises);
     }
 
     private static ArrayList<Integer> findPrimeNumbersUpTo(@SuppressWarnings("SameParameterValue") int n) {

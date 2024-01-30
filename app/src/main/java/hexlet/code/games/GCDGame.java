@@ -17,8 +17,6 @@ public class GCDGame {
     private static final String QUESTION_STRING_PATTERN = "%1$d %2$d";
 
     public static void game() {
-        Engine.welcomeGame("Find the greatest common divisor of given numbers.");
-
         List<Exercise> gcdExercises = new ArrayList<>();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
@@ -42,7 +40,7 @@ public class GCDGame {
             gcdExercises.add(new Exercise(question, answer));
         }
 
-        Engine.playGame(gcdExercises);
+        Engine.playGame("Find the greatest common divisor of given numbers.", gcdExercises);
     }
 
     public static int gcd(int first, int second) {
