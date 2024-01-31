@@ -6,8 +6,9 @@ import hexlet.code.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import java.util.NavigableSet;
+import java.util.TreeSet;
 
 public class PrimeNumberGame {
 
@@ -15,21 +16,18 @@ public class PrimeNumberGame {
     private static final String NO_EXPECTED_STRING = "no";
 
     private static final int PRIME_NUMBERS_BOUND = 1000;
-    private static final int TRICK_NUMBER_BOUND = 10 + 1;
 
     public static void game() {
-        Set<Exercise> primeNumberExercises = new HashSet<>();
+        List<Exercise> primeNumberExercises = new ArrayList<>();
 
-        ArrayList<Integer> primeNumbers = findPrimeNumbersUpTo(PRIME_NUMBERS_BOUND);
+        NavigableSet<Integer> primeNumbers = findPrimeNumbersUpTo(PRIME_NUMBERS_BOUND);
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int questionNumber = primeNumbers.get(Utils.nextRandomInt(primeNumbers.size()));
-            int trickNumber;
+            int randomNumber = Utils.nextRandomInt(primeNumbers.first(), primeNumbers.last());
+            Integer questionNumber = primeNumbers.floor(randomNumber);
 
-            if (Utils.nextRandomBoolean()) {
-                trickNumber = Utils.nextRandomInt(TRICK_NUMBER_BOUND);
-                trickNumber = trickNumber % 2 == 0 ? trickNumber : trickNumber + 1;
-                questionNumber += trickNumber;
+            if (Utils.nextRandomBoolean() || questionNumber == null) {
+                questionNumber = randomNumber;
             }
 
             String expectedAnswer = primeNumbers.contains(questionNumber) ? YES_EXPECTED_STRING : NO_EXPECTED_STRING;
@@ -39,8 +37,8 @@ public class PrimeNumberGame {
         Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", primeNumberExercises);
     }
 
-    private static ArrayList<Integer> findPrimeNumbersUpTo(@SuppressWarnings("SameParameterValue") int n) {
-        ArrayList<Integer> primeList = new ArrayList<>();
+    private static NavigableSet<Integer> findPrimeNumbersUpTo(@SuppressWarnings("SameParameterValue") int n) {
+        NavigableSet<Integer> primeList = new TreeSet<>();
         boolean[] primeNumbers = new boolean[n + 1];
         Arrays.fill(primeNumbers, true);
         primeNumbers[0] = false;

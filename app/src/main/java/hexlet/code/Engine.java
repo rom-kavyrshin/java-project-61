@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
@@ -8,7 +8,7 @@ public class Engine {
     public static final int COUNT_OF_ROUNDS = 3;
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static void playGame(String rules, Collection<Exercise> exercises) {
+    public static void playGame(String rules, List<Exercise> exercises) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
 
