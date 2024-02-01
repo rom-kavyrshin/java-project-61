@@ -23,18 +23,23 @@ public class PrimeNumberGame {
         NavigableSet<Integer> primeNumbers = findPrimeNumbersUpTo(PRIME_NUMBERS_BOUND);
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
-            int randomNumber = Utils.nextRandomInt(primeNumbers.first(), primeNumbers.last());
-            Integer questionNumber = primeNumbers.floor(randomNumber);
-
-            if (Utils.nextRandomBoolean() || questionNumber == null) {
-                questionNumber = randomNumber;
-            }
-
+            int questionNumber = getPrimeNumberWithProbability50Percent(primeNumbers);
             String expectedAnswer = primeNumbers.contains(questionNumber) ? YES_EXPECTED_STRING : NO_EXPECTED_STRING;
             primeNumberExercises.add(new Exercise(questionNumber + "", expectedAnswer));
         }
 
         Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", primeNumberExercises);
+    }
+
+    private static int getPrimeNumberWithProbability50Percent(NavigableSet<Integer> primeNumbers) {
+        int randomNumber = Utils.nextRandomInt(primeNumbers.first(), primeNumbers.last());
+        Integer questionNumber = primeNumbers.floor(randomNumber);
+
+        if (Utils.nextRandomBoolean() || questionNumber == null) {
+            questionNumber = randomNumber;
+        }
+
+        return questionNumber;
     }
 
     private static NavigableSet<Integer> findPrimeNumbersUpTo(@SuppressWarnings("SameParameterValue") int n) {

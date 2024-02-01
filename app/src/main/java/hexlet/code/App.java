@@ -45,14 +45,8 @@ public class App {
             case GCD -> GCDGame.game();
             case PROGRESSION -> ProgressionGame.game();
             case PRIME -> PrimeNumberGame.game();
-            case EXIT -> exitGame();
-            default -> {
-                throw new RuntimeException("Unknown game: " + gameNumber);
-            }
+            case EXIT -> System.exit(0);
+            default -> throw new RuntimeException("Unknown game: " + gameNumber);
         }
-    }
-
-    public static void exitGame() {
-        System.exit(0);
     }
 }
