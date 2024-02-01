@@ -12,6 +12,8 @@ import java.util.TreeSet;
 
 public class PrimeNumberGame {
 
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     private static final String YES_EXPECTED_STRING = "yes";
     private static final String NO_EXPECTED_STRING = "no";
 
@@ -28,7 +30,7 @@ public class PrimeNumberGame {
             primeNumberExercises.add(new Exercise(questionNumber + "", expectedAnswer));
         }
 
-        Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", primeNumberExercises);
+        Engine.playGame(RULES, primeNumberExercises);
     }
 
     private static int getPrimeNumberWithProbability50Percent(NavigableSet<Integer> primeNumbers) {

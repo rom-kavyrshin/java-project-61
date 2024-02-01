@@ -9,6 +9,8 @@ import java.util.List;
 
 public class GCDGame {
 
+    private static final String RULES = "Find the greatest common divisor of given numbers.";
+
     private static final int QUESTION_NUMBER_BOUND = 100;
     private static final int QUESTION_MULTIPLIER_NUMBER_ORIGIN = 1;
     private static final int ANSWER_NUMBER_ORIGIN = 1;
@@ -40,7 +42,7 @@ public class GCDGame {
             gcdExercises.add(new Exercise(question, answer));
         }
 
-        Engine.playGame("Find the greatest common divisor of given numbers.", gcdExercises);
+        Engine.playGame(RULES, gcdExercises);
     }
 
     public static int gcd(int first, int second) {

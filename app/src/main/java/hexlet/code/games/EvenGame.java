@@ -9,6 +9,8 @@ import java.util.List;
 
 public class EvenGame {
 
+    private static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     private static final String YES_EXPECTED_STRING = "yes";
     private static final String NO_EXPECTED_STRING = "no";
 
@@ -24,6 +26,6 @@ public class EvenGame {
             evenExercises.add(new Exercise(questionNumber + "", expectedAnswer));
         }
 
-        Engine.playGame("Answer 'yes' if the number is even, otherwise answer 'no'.", evenExercises);
+        Engine.playGame(RULES, evenExercises);
     }
 }

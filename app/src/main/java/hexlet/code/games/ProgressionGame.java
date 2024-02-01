@@ -9,6 +9,8 @@ import java.util.List;
 
 public class ProgressionGame {
 
+    private static final String RULES = "What number is missing in the progression?";
+
     private static final int PROGRESSION_MIN_LENGTH = 5;
     private static final int PROGRESSION_MAX_LENGTH = 10 + 1;
 
@@ -38,7 +40,7 @@ public class ProgressionGame {
             progressionExercises.add(new Exercise(question, answerNumber));
         }
 
-        Engine.playGame("What number is missing in the progression?", progressionExercises);
+        Engine.playGame(RULES, progressionExercises);
     }
 
     private static String[] makeProgression(int first, int step, int length) {
